@@ -1,4 +1,4 @@
-package assignment5;
+
 public interface NetworkGame {
 	/**
 	 * Returns the playerID (index) of the local player.
