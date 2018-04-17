@@ -1,8 +1,6 @@
-package assignment5;
-
 import java.util.ArrayList;
-
-import java.io.*; import java.net.*; 
+import java.io.*; 
+import java.net.*; 
 import javax.swing.JOptionPane;
 /**a constructor for creating a Big Two client, create 4 players and add them to the list of players, 
  * create a Big Two table which builds the GUI for the game and handles user actions, make a connection 
@@ -130,8 +128,7 @@ public class BigTwoClient implements CardGame, NetworkGame{
     			break;
     		}	
     	}table.repaint();
-    	table.printMsg("All players set, game starts.");
-		
+    	table.printMsg("All players set, game starts.");	
     	table.printMsg(playerList.get(currentIdx).getName() + "'s turn:");
     }
     /**a method for making a move by a player with the specified playerID 
@@ -142,7 +139,6 @@ public class BigTwoClient implements CardGame, NetworkGame{
     	CardGameMessage move = new CardGameMessage(CardGameMessage.MOVE, playerID, cardIdx);
 		sendMessage(move);
     }
-    
     /**a method for checking a move made by a player and make corresponding actions
      */
     public void checkMove(int playerID, int[] cardIdx){
@@ -150,7 +146,8 @@ public class BigTwoClient implements CardGame, NetworkGame{
     		if(cardIdx==null){
     			table.printMsg("Not a legal move!!!");
     		}
-    		else{ Hand hand=composeHand(playerList.get(playerID),playerList.get(playerID).play(cardIdx));
+    		else{ 
+			Hand hand=composeHand(playerList.get(playerID),playerList.get(playerID).play(cardIdx));
     			if(hand==null){
     				table.printMsg("Not a legal move!!!");   			
     		}
@@ -165,36 +162,38 @@ public class BigTwoClient implements CardGame, NetworkGame{
         		  
         		    isLastmoveIllegal=false;
         		    countpass=0;
-    		}}
+    			}
+		}
     	}
     	else {
     		if(cardIdx==null){
-    		table.printMsg("{pass}");
-    		currentIdx=(currentIdx+1)%4;
-    		
-    		isLastmoveIllegal=false;
-    		countpass++;
-    	}
-    	else{Hand hand=composeHand(playerList.get(playerID),playerList.get(playerID).play(cardIdx));
-    	     if(hand==null|| hand.beats(handsOnTable.get(handsOnTable.size()-1))==false	){
-    	    	 table.printMsg("Not a legal move!!!");
-    	    	 isLastmoveIllegal=true;
-    	    	 countpass=0;
-    	     }else{
-    	    	 table.printMsg("{"+hand.getType()+"}");
-    	    	 table.printMsg(hand.toString());
-    	    	 CardList removablecards=hand.getList();
-    	    	 playerList.get(playerID).removeCards(removablecards);
-    	    	 handsOnTable.add(hand);
-    	    	 currentIdx=(currentIdx+1)%4;
-    	    	
-    	    	 isLastmoveIllegal=false;
-    	    	 countpass=0;}
-    	}}
+    			table.printMsg("{pass}");
+    			currentIdx=(currentIdx+1)%4;	
+    			isLastmoveIllegal=false;
+    			countpass++;
+    		}
+    		else{
+			Hand hand=composeHand(playerList.get(playerID),playerList.get(playerID).play(cardIdx));
+    	     		if(hand==null|| hand.beats(handsOnTable.get(handsOnTable.size()-1))==false){
+    	    	 		table.printMsg("Not a legal move!!!");
+    	    	 		isLastmoveIllegal=true;
+    	    			countpass=0;
+    	    		 }else{
+    	    	 		table.printMsg("{"+hand.getType()+"}");
+    	    	 		table.printMsg(hand.toString());
+    	    	 		CardList removablecards=hand.getList();
+    	    	 		playerList.get(playerID).removeCards(removablecards);
+    	    	 		handsOnTable.add(hand);
+    	    	 		currentIdx=(currentIdx+1)%4;
+    	    	 		isLastmoveIllegal=false;
+    	    	 		countpass=0;
+			}
+    		}
+	}
     	if(!endOfGame()){
     		table.printMsg(playerList.get(currentIdx).getName() + "'s turn:");
-			table.resetSelected();
-			table.repaint();
+		table.resetSelected();
+		table.repaint();
     	}
     	if(endOfGame()){
     		table.printMsg("Game ends");
@@ -211,9 +210,9 @@ public class BigTwoClient implements CardGame, NetworkGame{
     			playerList.get(j).getNumOfCards()+" cards in hand.");
     			}
     		}JOptionPane.showMessageDialog(null, "Game ends");
-			CardGameMessage ready = new CardGameMessage(CardGameMessage.READY, -1, null);
-			sendMessage(ready);
-			return;
+		CardGameMessage ready = new CardGameMessage(CardGameMessage.READY, -1, null);
+		sendMessage(ready);
+		return;
     	}table.repaint();
     }
     /**getting the playerID (i.e., index) of the local player.
