@@ -1,5 +1,3 @@
-package assignment5;
-
 /**This class is used to represent a BigTwo deck
  * @author why
  *
