@@ -1,12 +1,9 @@
-package assignment5;
 import java.awt.event.ActionEvent;
-
 import java.awt.event.ActionListener;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -18,7 +15,7 @@ import javax.swing.ScrollPaneConstants;
 /**
  * This class is used to model a card game server.
  * 
- * @author Kenneth Wong
+ * 
  *
  */
 public class CardGameServer {
