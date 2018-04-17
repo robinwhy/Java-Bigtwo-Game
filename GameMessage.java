@@ -1,9 +1,8 @@
-package assignment5;
 import java.io.Serializable;
 
 /**
  * This class is used to model the message for a network game.
- * @author Kenneth Wong
+ * 
  *
  */
 public class GameMessage implements Serializable {
