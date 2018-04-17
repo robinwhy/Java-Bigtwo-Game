@@ -1,6 +1,4 @@
-package assignment5;
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.event.MouseEvent;
@@ -55,27 +53,27 @@ public class BigTwoTable implements CardGameTable{
 		char[] suit = {'d','c','h','s'};
 		char[] rank = {'a','2','3', '4', '5', '6', '7', '8', '9', 't', 'j', 'q', 'k'};
 		avatars=new Image[4];
-		ImageIcon temp=new ImageIcon("/Users/why/Desktop/comp2396/assign4_provided_classes/avatar/png/256/batman_256.png");
+		ImageIcon temp=new ImageIcon("……");
 		temp.setImage(temp.getImage().getScaledInstance(55, 70,  
                 Image.SCALE_DEFAULT));  
 		avatars[0]=temp.getImage();
-		temp=new ImageIcon("/Users/why/Desktop/comp2396/assign4_provided_classes/avatar/png/256/flash_256.png");
+		temp=new ImageIcon("……");
 		temp.setImage(temp.getImage().getScaledInstance(55, 70,  
                 Image.SCALE_DEFAULT));  
 		avatars[1]=temp.getImage();
-		temp=new ImageIcon("/Users/why/Desktop/comp2396/assign4_provided_classes/avatar/png/256/green_lantern_256.png");
+		temp=new ImageIcon("……");
 		temp.setImage(temp.getImage().getScaledInstance(55, 70,  
                 Image.SCALE_DEFAULT));  
 		avatars[2]=temp.getImage();
-		temp=new ImageIcon("/Users/why/Desktop/comp2396/assign4_provided_classes/avatar/png/256/superman_256.png");
+		temp=new ImageIcon("……");
 		temp.setImage(temp.getImage().getScaledInstance(55, 70,  
                 Image.SCALE_DEFAULT));  
 		avatars[3]=temp.getImage();
-		cardBackImage=new ImageIcon("/Users/why/Desktop/comp2396/assign4_provided_classes/cards/b.gif").getImage();
+		cardBackImage=new ImageIcon("……").getImage();
 		cardImages=new Image[4][13];
 		for(int i = 0; i < suit.length; i++){
 			for(int j = 0; j < rank.length; j++){
-				cardImages[i][j] = new ImageIcon("/Users/why/Desktop/comp2396/assign4_provided_classes/cards/"+rank[j]+suit[i]+".gif").getImage();
+				cardImages[i][j] = new ImageIcon("……"+rank[j]+suit[i]+".gif").getImage();
 			};
 		};
 		frame.setSize(1200, 900);
@@ -302,7 +300,7 @@ public class BigTwoTable implements CardGameTable{
 				g2d.drawString( "Played by: " + playerName, 5,cardLocationY);
 			}
 		}
-		 /**overrides the mouseClicked method to determine whether mouse is on a certain card
+	     /**overrides the mouseClicked method to determine whether mouse is on a certain card
 	     * @param e
 	     *            mouse event
 	     */
