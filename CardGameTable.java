@@ -1,8 +1,8 @@
-package assignment5;
+
 /**
  * An interface for a general card game table (GUI)
  * 
- * @author Kenneth Wong
+ * 
  * 
  */
 public interface CardGameTable {
