@@ -1,8 +1,8 @@
-package assignment5;
+
 /**
  * This class is used to model the message for a network card game.
  * 
- * @author Kenneth Wong
+ * 
  *
  */
 public class CardGameMessage extends GameMessage {
