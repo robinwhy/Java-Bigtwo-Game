@@ -1,10 +1,9 @@
-package assignment5;
 import java.util.ArrayList;
 
 /**
  * An interface for a general card game.
  * 
- * @author Kenneth Wong
+ * 
  *
  */
 public interface CardGame {
