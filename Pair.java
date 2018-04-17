@@ -1,4 +1,3 @@
-package assignment5;
 
 /**This class is used to represent a pair
  * @author why
